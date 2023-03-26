@@ -1,5 +1,10 @@
 $(function () {
   
+  
+  // Display the current date in the header of the page.
+  var currentDate = dayjs().format('dddd, MMMM D');
+  $('#currentDay').text(currentDate);
+  
   // Create the html time blocks (9am to 5pm)
   var timeBlockTemp = "";
   for (let i = 9; i < 18; i++) {
@@ -42,16 +47,6 @@ $(function () {
 
   $("#schedule-block").html(timeBlockTemp);
 
-  // Add a listener for click events on the save button.
-  $('.saveBtn').on('click', function() {
-    // Get the id of the containing time block.
-    var timeBlockId = $(this).parent().attr('id');
-    // Get the user input from the textarea.
-    var userInput = $(this).siblings('.description').val();
-    // Save the user input in local storage with the time block id as the key.
-    localStorage.setItem(timeBlockId, userInput);
-  });
-
   // Apply the past, present, or future class to each time block.
   var currentHour = dayjs().hour();
   $('.time-block').each(function() {
@@ -76,8 +71,15 @@ $(function () {
     }
   });
 
-  // Display the current date in the header of the page.
-  var currentDate = dayjs().format('dddd, MMMM D');
-  $('#currentDay').text(currentDate);
+    // Add a listener for click events on the save button.
+  $('.saveBtn').on('click', function() {
+    // Get the id of the containing time block.
+    var timeBlockId = $(this).parent().attr('id');
+    // Get the user input from the textarea.
+    var userInput = $(this).siblings('.description').val();
+    // Save the user input in local storage with the time block id as the key.
+    localStorage.setItem(timeBlockId, userInput);
+  });
+  
 });
 
