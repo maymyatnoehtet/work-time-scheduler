@@ -1,4 +1,6 @@
 $(function () {
+  
+  // Create the html time blocks (9am to 5pm)
   var timeBlockTemp = "";
   for (let i = 9; i < 18; i++) {
     if (i > 12) {
