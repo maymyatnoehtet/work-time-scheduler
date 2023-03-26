@@ -9,5 +9,7 @@ A simple canlender application that allows a user to save events for each hour o
 
 
 Reference:
-https://api.jquery.com/parent/
+
+Website: https://api.jquery.com/parent/
+
 Tutor: Sangeetha Kaliaperumal
